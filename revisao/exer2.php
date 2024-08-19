@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <button type="submit" class="btn btn-danger">Calcular</button>
+            <button type="submit" class="btn btn-danger mt-3">Calcular</button>
         </div>
     </div>
 </form>
