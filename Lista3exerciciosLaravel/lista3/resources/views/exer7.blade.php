@@ -3,23 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Exercício 1</title>
+        <title>Exercício 7</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
 
     <body>
         <main class="container">
-            <form action="/respostaExer1" method="POST">
+            <form action="/respostaExer7" method="POST">
                 @CSRF
                 <div class="row">
                     <div class="col">
-                        <label class="form-label">Informe o primeiro número: </label>
-                        <input type="number" name="valor1" class="form-control"/>
-                    </div>
-                    <div class="col">
-                        <label class="form-label">Informe o segundo número: </label>
-                        <input type="number" name="valor2" class="form-control"/>
+                        <label class="form-label">Informe a temperatura em Fahrenheit: </label>
+                        <input type="number" name="temperatura" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">

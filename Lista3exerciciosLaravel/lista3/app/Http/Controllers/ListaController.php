@@ -13,6 +13,6 @@ class ListaController extends Controller
     public function calcularExer1(Request $request) {
         $valor1 = (int)$request->input('valor1');
         $valor2 = (int)$request->input('valor2');
-        return $valor1 + $valor2;
+        return "O resultado da soma é de: " . $valor1 + $valor2;
     }
 }
