@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Equipamento;
 
 class EquipamentoController extends Controller
 {
@@ -11,8 +12,8 @@ class EquipamentoController extends Controller
      */
     public function index()
     {
-        $equipmentos = Equipmento::all();
-        return view('equipmentos.index', compact('equipmentos'));
+        $equipamentos = Equipamento::all();
+        return view('equipamentos.index', compact('equipamentos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class EquipamentoController extends Controller
      */
     public function create()
     {
-        return view('equipmentos.create');
+        return view('equipamentos.create');
     }
 
     /**
@@ -34,8 +35,8 @@ class EquipamentoController extends Controller
             'quantidade' => 'required|integer',
         ]);
 
-        Equipmento::create($request->all());
-        return redirect()->route('equipmentos.index')->with('success', 'Equipamento criado com sucesso!');
+        Equipamento::create($request->all());
+        return redirect()->route('equipamentos.index')->with('success', 'Equipamento criado com sucesso!');
     }
 
     /**
@@ -43,30 +44,38 @@ class EquipamentoController extends Controller
      */
     public function show(Equipamento $equipamento)
     {
-        return view('equipmentos.show', compact('equipmento'));
+        return view('equipamentos.show', compact('equipamento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Equipamento $equipamento)
     {
-        //
+        return view('equipamentos.edit', compact('equipamento'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Equipamento $equipamento)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+            'quantidade' => 'required|integer',
+        ]);
+
+        $equipamento->update($request->all());
+        return redirect()->route('equipamentos.index')->with('success', 'Equipamento atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Equipamento $equipamento)
     {
-        //
+        $equipamento->delete();
+        return redirect()->route('equipamentos.index')->with('success', 'Equipamento deletado com sucesso!');
     }
 }
